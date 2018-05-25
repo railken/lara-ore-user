@@ -18,6 +18,13 @@ use Railken\Laravel\Manager\Tokens;
 class UserManager extends ModelManager
 {
     /**
+     * Class name entity.
+     *
+     * @var string
+     */
+    public $entity = User::class;
+
+    /**
      * Attributes.
      *
      * @var array
@@ -47,6 +54,7 @@ class UserManager extends ModelManager
      */
     public function __construct(AgentContract $agent = null)
     {
+        $this->entity = config('ore.user.entity', User::class);
         $this->setRepository(new UserRepository($this));
         $this->setSerializer(new UserSerializer($this));
         $this->setAuthorizer(new UserAuthorizer($this));

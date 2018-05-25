@@ -4,6 +4,10 @@ namespace Railken\LaraOre\User\Tests;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
+use Railken\LaraCommandTest\Helper;
+use Railken\LaraCommandTest\GeneratorCommandTestable;
+use Illuminate\Support\Facades\Artisan;
+
 
 abstract class BaseTest extends \Orchestra\Testbench\TestCase
 {
@@ -24,21 +28,24 @@ abstract class BaseTest extends \Orchestra\Testbench\TestCase
         $dotenv = new \Dotenv\Dotenv(__DIR__.'/..', '.env');
         $dotenv->load();
 
-        parent::setUp();
+        $helper = new Helper(__DIR__ . "/../var/cache");
+        $command = $helper->generate(\Zizaco\Entrust\MigrationCommand::class, ['yes']);
 
+        parent::setUp();
+        
         File::cleanDirectory(database_path("migrations/"));
 
         $this->artisan('vendor:publish', [
-            '--provider' => 'Railken\LaraOre\UserServiceProvider',
-            '--tag' => 'config',
+            '--provider' => 'Zizaco\Entrust\EntrustServiceProvider',
             '--force' => true,
         ]);
 
         $this->artisan('vendor:publish', [
             '--provider' => 'Railken\LaraOre\UserServiceProvider',
-            '--tag' => 'migrations',
             '--force' => true,
         ]);
+
+        $helper->call($command);
 
         $this->artisan('migrate:fresh');
         $this->artisan('migrate');
