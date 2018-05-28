@@ -67,7 +67,7 @@ class FlushPermissionsCommand extends Command
     public function updatePermissions($permissions)
     {
         foreach ($permissions as $permission) {
-            $permission = Permission::firstOrCreate(['name' => $permission]);
+            $permission = (new Permission)->newQuery()->firstOrCreate(['name' => $permission]);
         }
     }
 }
