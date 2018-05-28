@@ -28,24 +28,16 @@ abstract class BaseTest extends \Orchestra\Testbench\TestCase
         $dotenv = new \Dotenv\Dotenv(__DIR__.'/..', '.env');
         $dotenv->load();
 
-        $helper = new Helper(__DIR__ . "/../var/cache");
-        $command = $helper->generate(\Zizaco\Entrust\MigrationCommand::class, ['yes']);
 
         parent::setUp();
         
         File::cleanDirectory(database_path("migrations/"));
 
-        $this->artisan('vendor:publish', [
-            '--provider' => 'Zizaco\Entrust\EntrustServiceProvider',
-            '--force' => true,
-        ]);
 
         $this->artisan('vendor:publish', [
             '--provider' => 'Railken\LaraOre\UserServiceProvider',
             '--force' => true,
         ]);
-
-        $helper->call($command);
 
         $this->artisan('migrate:fresh');
         $this->artisan('migrate');

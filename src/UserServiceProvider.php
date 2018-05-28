@@ -24,7 +24,12 @@ class UserServiceProvider extends ServiceProvider
                 __DIR__.'/../database/migrations/create_users_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_users_table.php'),
             ], 'migrations');
         }
-        
+
+        if (!class_exists('EntrustSetupTables')) {
+            $this->publishes([
+                __DIR__.'/../database/migrations/entrust_setup_tables.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_entrust_setup_tables.php'),
+            ], 'migrations');
+        }
 
         config(['entrust.role' => "Railken\LaraOre\Role\Role"]);
         config(['entrust.permission' => "Railken\LaraOre\Permission\Permission"]);

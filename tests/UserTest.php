@@ -42,4 +42,11 @@ class UserTest extends BaseTest
     {
         $this->commonTest($this->getManager(), $this->getParameters());
     }
+
+    /** @test */
+    public function it_will_seed()
+    {
+        $seeder = new \Railken\LaraOre\User\Database\Seeds\UserSeeder();
+        $this->assertEquals(1, $seeder->run());
+    }
 }

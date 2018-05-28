@@ -29,3 +29,9 @@ After the migration has been published you can create the migration-table by run
 
 ```bash
 php artisan migrate
+```
+You can publish the config-file with:
+
+```bash
+php artisan vendor:publish --provider="Railken\LaraOre\UserServiceProvider" --tag="config"
+```
