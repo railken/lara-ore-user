@@ -21,4 +21,18 @@ return [
     |
     */
     'entity' => Railken\LaraOre\User\User::class,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Permission
+    |--------------------------------------------------------------------------
+    |
+    | Permission config
+    |
+    */
+    'permission' => [
+        'managers' => [
+            Railken\LaraOre\User\UserManager::class
+        ]
+    ]
 ];

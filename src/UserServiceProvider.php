@@ -4,6 +4,7 @@ namespace Railken\LaraOre;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Railken\LaraOre\Permission\Console\Commands\FlushPermissionsCommand;
 
 class UserServiceProvider extends ServiceProvider
 {
@@ -35,5 +36,7 @@ class UserServiceProvider extends ServiceProvider
         config(['entrust.permission' => "Railken\LaraOre\Permission\Permission"]);
         config(['entrust.user' => config('ore.user.entity')]);
         config(['auth.providers.users.model' => config('ore.user.entity')]);
+
+        $this->commands([FlushPermissionsCommand::class]);
     }
 }

@@ -49,4 +49,10 @@ class UserTest extends BaseTest
         $seeder = new \Railken\LaraOre\User\Database\Seeds\UserSeeder();
         $this->assertEquals(1, $seeder->run());
     }
+
+    /** @test */
+    public function it_will_flush_permission()
+    {
+        $this->assertEquals(1, $this->artisan('lara-ore:permission:flush'));
+    }
 }
