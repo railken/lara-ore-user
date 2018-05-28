@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\LaraOre\User;
+namespace Railken\LaraOre\Role;
 
 use Zizaco\Entrust\EntrustRole;
 

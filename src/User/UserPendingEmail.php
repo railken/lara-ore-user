@@ -34,7 +34,7 @@ class UserPendingEmail extends Model
     /**
      * Retrieve user.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\belongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {

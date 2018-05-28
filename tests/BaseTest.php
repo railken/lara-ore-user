@@ -8,7 +8,6 @@ use Railken\LaraCommandTest\Helper;
 use Railken\LaraCommandTest\GeneratorCommandTestable;
 use Illuminate\Support\Facades\Artisan;
 
-
 abstract class BaseTest extends \Orchestra\Testbench\TestCase
 {
     protected function getPackageProviders($app)

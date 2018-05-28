@@ -13,7 +13,7 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends Authenticatable implements EntityContract, AgentContract
 {
-    use HasApiTokens, Notifiable;// , EntrustUserTrait; 
+    use HasApiTokens, Notifiable;// , EntrustUserTrait;
     
     /**
      * The table associated with the model.
@@ -68,14 +68,6 @@ class User extends Authenticatable implements EntityContract, AgentContract
     public function pendingEmail()
     {
         return $this->hasOne(UserPendingEmail::class, 'user_id')->latest();
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function fileAvatar()
-    {
-        return $this->belongsTo(File::class, 'file_avatar_id')->latest();
     }
 
     /**
