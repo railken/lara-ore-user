@@ -55,13 +55,11 @@ class FlushPermissionsCommand extends Command
             }
         }
 
-        return 1;
+        $admin = (new Role)->newQuery()->firstOrCreate(['name' => 'admin']);
+        $admin->fill(['display_name' => 'Administrator', 'description' => '*'])->save();
+        $admin->attachPermissions((new Permission)->newQuery()->get());
 
-        /*$admin = new Role();
-        $admin->name         = 'admin';
-        $admin->display_name = 'User Administrator'; // optional
-        $admin->description  = 'User is allowed to manage and edit other users'; // optional
-        $admin->save();*/
+        return 1;
     }
 
     public function updatePermissions($permissions)
