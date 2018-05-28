@@ -13,7 +13,7 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends Authenticatable implements EntityContract, AgentContract
 {
-    use HasApiTokens, Notifiable;// , EntrustUserTrait;
+    use HasApiTokens, Notifiable, EntrustUserTrait;
     
     /**
      * The table associated with the model.

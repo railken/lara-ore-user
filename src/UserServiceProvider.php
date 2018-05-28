@@ -32,7 +32,7 @@ class UserServiceProvider extends ServiceProvider
             ], 'migrations');
         }
 
-        config(['entrust.role' => "Railken\LaraOre\Role\Role"]);
+        config(['entrust.role' => "Railken\LaraOre\Permission\Role"]);
         config(['entrust.permission' => "Railken\LaraOre\Permission\Permission"]);
         config(['entrust.user' => config('ore.user.entity')]);
         config(['auth.providers.users.model' => config('ore.user.entity')]);
