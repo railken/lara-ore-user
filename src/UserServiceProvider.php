@@ -39,4 +39,16 @@ class UserServiceProvider extends ServiceProvider
 
         $this->commands([FlushPermissionsCommand::class]);
     }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->register(\Railken\Laravel\Manager\ManagerServiceProvider::class);
+        $this->app->register(\Zizaco\Entrust\EntrustServiceProvider::class);
+        $this->mergeConfigFrom(__DIR__.'/../config/ore.user.php', 'ore.user');
+    }
 }
