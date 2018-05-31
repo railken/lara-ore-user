@@ -10,6 +10,7 @@ use Laravel\Passport\HasApiTokens;
 use Railken\Laravel\Manager\Contracts\EntityContract;
 use Railken\Laravel\Manager\Contracts\AgentContract;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Illuminate\Support\Facades\Config;
 
 class User extends Authenticatable implements EntityContract, AgentContract
 {
@@ -61,6 +62,17 @@ class User extends Authenticatable implements EntityContract, AgentContract
     protected $dates = [
     
     ];
+
+    /**
+     * Creates a new instance of the model.
+     *
+     * @param array $attributes
+     */
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->table = \Illuminate\Support\Facades\Config::get('ore.user.table');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
