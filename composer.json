@@ -26,5 +26,12 @@
     },
     "autoload-dev": {
         "psr-4": { "Railken\\LaraOre\\User\\Tests\\": "tests/" }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Railken\\LaraOre\\UserServiceProvider"
+            ]
+        }
     }
 }
