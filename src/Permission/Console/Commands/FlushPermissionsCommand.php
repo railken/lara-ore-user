@@ -57,6 +57,7 @@ class FlushPermissionsCommand extends Command
 
         $admin = (new Role)->newQuery()->firstOrCreate(['name' => 'admin']);
         $admin->fill(['display_name' => 'Administrator', 'description' => '*'])->save();
+        $admin->detachPermissions();
         $admin->attachPermissions((new Permission)->newQuery()->get());
 
         return 1;

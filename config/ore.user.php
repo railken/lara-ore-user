@@ -34,5 +34,13 @@ return [
         'managers' => [
             Railken\LaraOre\User\UserManager::class
         ]
+    ],
+
+
+    'router' => [
+        'prefix' => 'api/v1/admin/users',
+        'middlewares' => [
+             'auth:api',
+        ]
     ]
 ];

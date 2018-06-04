@@ -28,15 +28,9 @@ abstract class BaseTest extends \Orchestra\Testbench\TestCase
 
         parent::setUp();
         
-        File::cleanDirectory(database_path("migrations/"));
-
-
-        $this->artisan('vendor:publish', [
-            '--provider' => 'Railken\LaraOre\UserServiceProvider',
-            '--force' => true,
-        ]);
-
         $this->artisan('migrate:fresh');
+        $this->artisan('vendor:publish', ['--provider' => 'Railken\LaraOre\UserServiceProvider', '--force' => true]);
+        $this->artisan('lara-ore:user:install');
         $this->artisan('migrate');
     }
 }

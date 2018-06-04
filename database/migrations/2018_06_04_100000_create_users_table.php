@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Database\Schema\Blueprint;
 
 class CreateUsersTable extends Migration
@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('ore_users', function ($table) {
+        Schema::create(Config::get('ore.user.table'), function ($table) {
             $table->increments('id'); 
             $table->string('name'); 
             $table->string('email')->unique(); 
@@ -33,6 +33,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ore_users');
+        Schema::dropIfExists(Config::get('ore.user.table'));
     }
 }
