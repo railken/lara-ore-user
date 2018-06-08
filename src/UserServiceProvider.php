@@ -10,6 +10,7 @@ use Railken\LaraOre\Permission\Console\Commands\FlushPermissionsCommand;
 use Railken\LaraOre\Console\Commands\UserInstallCommand;
 use Laravel\Passport\Passport;
 use Laravel\Passport\RouteRegistrar;
+use Railken\LaraOre\Api\Support\Router;
 
 class UserServiceProvider extends ServiceProvider
 {
@@ -67,6 +68,7 @@ class UserServiceProvider extends ServiceProvider
     {
         $this->app->register(\Laravel\Passport\PassportServiceProvider::class);
         $this->app->register(\Railken\Laravel\Manager\ManagerServiceProvider::class);
+        $this->app->register(\Railken\LaraOre\ApiServiceProvider::class);
         $this->app->register(\Zizaco\Entrust\EntrustServiceProvider::class);
         $this->mergeConfigFrom(__DIR__.'/../config/ore.user.php', 'ore.user');
     }
@@ -76,10 +78,9 @@ class UserServiceProvider extends ServiceProvider
      */
     public function loadRoutes()
     {
-        Route::group([
+        Route::group(array_merge(Config::get('ore.api.router'), [
             'namespace' => 'Railken\LaraOre\Http\Controllers',
-            'prefix' => '/api/v1',
-        ], function ($router) {
+        ]), function ($router) {
             $router->post('/sign-up', ['uses' => 'RegistrationController@index']);
             $router->post('/confirm-email', ['uses' => 'RegistrationController@confirmEmail']);
             $router->post('/request-confirm-email', ['uses' => 'RegistrationController@requestConfirmEmail']);
@@ -91,17 +92,16 @@ class UserServiceProvider extends ServiceProvider
             $router->group(['middleware' => ['auth:api']], function () {
                 Route::get('/user', ['uses' => 'UserController@index']);
             });
+        });
 
-            Route::group([
-                'prefix' => '/admin/users',
-                'middleware' => Config::get('ore.user.router.middlewares'),
-            ], function ($router) {
-                $router->get('/', ['uses' => 'UsersController@index']);
-                $router->post('/', ['uses' => 'UsersController@create']);
-                $router->put('/{id}', ['uses' => 'UsersController@update']);
-                $router->delete('/{id}', ['uses' => 'UsersController@remove']);
-                $router->get('/{id}', ['uses' => 'UsersController@show']);
-            });
+        Router::group(array_merge(Config::get('ore.user.router'), [
+            'namespace' => 'Railken\LaraOre\Http\Controllers',
+        ]), function ($router) {
+            $router->get('/', ['uses' => 'UsersController@index']);
+            $router->post('/', ['uses' => 'UsersController@create']);
+            $router->put('/{id}', ['uses' => 'UsersController@update']);
+            $router->delete('/{id}', ['uses' => 'UsersController@remove']);
+            $router->get('/{id}', ['uses' => 'UsersController@show']);
         });
     }
 }
