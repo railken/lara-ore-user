@@ -9,7 +9,7 @@ use Railken\LaraOre\User\UserManager;
 class ManagerTest extends BaseTest
 {
     use ManagerTestableTrait;
-    
+
     /**
      * Retrieve basic url.
      *
@@ -32,6 +32,7 @@ class ManagerTest extends BaseTest
         $bag->set('password', str_random(16));
         $bag->set('email', 'user@test.net');
         $bag->set('enabled', 1);
+
         return $bag;
     }
 

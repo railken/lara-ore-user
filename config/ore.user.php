@@ -32,15 +32,14 @@ return [
     */
     'permission' => [
         'managers' => [
-            Railken\LaraOre\User\UserManager::class
-        ]
+            Railken\LaraOre\User\UserManager::class,
+        ],
     ],
 
-
     'router' => [
-        'prefix' => 'admin/users',
+        'prefix'      => 'admin/users',
         'middlewares' => [
              'auth:api',
-        ]
-    ]
+        ],
+    ],
 ];
