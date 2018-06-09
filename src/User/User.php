@@ -7,15 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
-use Railken\Laravel\Manager\Contracts\EntityContract;
 use Railken\Laravel\Manager\Contracts\AgentContract;
+use Railken\Laravel\Manager\Contracts\EntityContract;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
-use Illuminate\Support\Facades\Config;
 
 class User extends Authenticatable implements EntityContract, AgentContract
 {
     use HasApiTokens, Notifiable, EntrustUserTrait;
-    
+
     /**
      * The table associated with the model.
      *
@@ -60,7 +59,7 @@ class User extends Authenticatable implements EntityContract, AgentContract
      * @var array
      */
     protected $dates = [
-    
+
     ];
 
     /**

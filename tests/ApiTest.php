@@ -8,7 +8,7 @@ use Railken\LaraOre\Support\Testing\ApiTestableTrait;
 class ApiTest extends BaseTest
 {
     use ApiTestableTrait;
-    
+
     /**
      * Retrieve basic url.
      *
@@ -27,15 +27,15 @@ class ApiTest extends BaseTest
     public function getParameters()
     {
         $bag = new Bag();
-        $bag->set('name', "A name");
-        $bag->set('email', "test".microtime(true)."@test.net");
+        $bag->set('name', 'A name');
+        $bag->set('email', 'test'.microtime(true).'@test.net');
         $bag->set('password', 'password');
         // $bag->set('role', 'user');
         $bag->set('enabled', 1);
 
         return $bag;
     }
-    
+
     public function signIn()
     {
         $response = $this->post('/api/v1/sign-in', [
@@ -44,12 +44,11 @@ class ApiTest extends BaseTest
         ]);
 
         $access_token = json_decode($response->getContent())->data->access_token;
-        
+
         $this->withHeaders(['Authorization' => 'Bearer '.$access_token]);
 
         return $response;
     }
-
 
     /**
      * Test common requests.

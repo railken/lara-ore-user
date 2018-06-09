@@ -3,13 +3,11 @@
 namespace Railken\LaraOre\Permission\Console\Commands;
 
 use Illuminate\Console\Command;
-
-use Railken\LaraOre\Permission\Role;
 use Railken\LaraOre\Permission\Permission;
+use Railken\LaraOre\Permission\Role;
 
 class FlushPermissionsCommand extends Command
 {
-
     /**
      * The name and signature of the console command.
      *
@@ -46,7 +44,6 @@ class FlushPermissionsCommand extends Command
 
         $managers = config('ore.user.permission.managers', []);
 
-
         foreach ($managers as $manager) {
             $manager = new $manager();
             $this->updatePermissions($manager->getAuthorizer()->getPermissions());
@@ -55,10 +52,10 @@ class FlushPermissionsCommand extends Command
             }
         }
 
-        $admin = (new Role)->newQuery()->firstOrCreate(['name' => 'admin']);
+        $admin = (new Role())->newQuery()->firstOrCreate(['name' => 'admin']);
         $admin->fill(['display_name' => 'Administrator', 'description' => '*'])->save();
         $admin->detachPermissions();
-        $admin->attachPermissions((new Permission)->newQuery()->get());
+        $admin->attachPermissions((new Permission())->newQuery()->get());
 
         return 1;
     }
@@ -66,7 +63,7 @@ class FlushPermissionsCommand extends Command
     public function updatePermissions($permissions)
     {
         foreach ($permissions as $permission) {
-            $permission = (new Permission)->newQuery()->firstOrCreate(['name' => $permission]);
+            $permission = (new Permission())->newQuery()->firstOrCreate(['name' => $permission]);
         }
     }
 }
