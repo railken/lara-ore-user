@@ -37,7 +37,7 @@ return [
     ],
 
     'router' => [
-        'prefix'      => 'admin/users',
+        'prefix'      => '/admin/users',
         'middlewares' => [
              'auth:api',
         ],
