@@ -6,7 +6,6 @@ use Illuminate\Console\Command;
 
 class UserInstallCommand extends Command
 {
-
     /**
      * The name and signature of the console command.
      *
@@ -41,6 +40,6 @@ class UserInstallCommand extends Command
         $this->call('passport:install');
         $this->call('lara-ore:permission:flush');
         $this->call('db:seed', ['--class' => 'Railken\LaraOre\User\Database\Seeds\UserSeeder']);
-        (new \Railken\LaraOre\User\UserManager())->getRepository()->findOneBy(['id' => 1])->attachRole((new \Railken\LaraOre\Permission\Role)->newQuery()->where('name', 'admin')->first());
+        (new \Railken\LaraOre\User\UserManager())->getRepository()->findOneBy(['id' => 1])->attachRole((new \Railken\LaraOre\Permission\Role())->newQuery()->where('name', 'admin')->first());
     }
 }

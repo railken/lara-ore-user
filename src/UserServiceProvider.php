@@ -2,19 +2,17 @@
 
 namespace Railken\LaraOre;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Config;
-use Railken\LaraOre\Permission\Console\Commands\FlushPermissionsCommand;
-use Railken\LaraOre\Console\Commands\UserInstallCommand;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
 use Laravel\Passport\RouteRegistrar;
 use Railken\LaraOre\Api\Support\Router;
+use Railken\LaraOre\Console\Commands\UserInstallCommand;
+use Railken\LaraOre\Permission\Console\Commands\FlushPermissionsCommand;
 
 class UserServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap any application services.
      *
@@ -26,9 +24,8 @@ class UserServiceProvider extends ServiceProvider
             __DIR__.'/../config/ore.user.php' => config_path('ore.user.php'),
         ], 'config');
 
-
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        
+
         config(['entrust.role' => "Railken\LaraOre\Permission\Role"]);
         config(['entrust.permission' => "Railken\LaraOre\Permission\Permission"]);
         config(['entrust.user' => config('ore.user.entity')]);
@@ -40,7 +37,6 @@ class UserServiceProvider extends ServiceProvider
 
         $this->commands([FlushPermissionsCommand::class, UserInstallCommand::class]);
         $this->loadRoutes();
-
 
         $callback = function ($router) {
             $router->all();
@@ -88,7 +84,7 @@ class UserServiceProvider extends ServiceProvider
             $router->post('/sign-in', ['uses' => 'SignInController@signIn']);
             $router->post('/oauth/{name}/access_token', ['uses' => 'SignInController@accessToken']);
             $router->post('/oauth/{name}/exchange_token', ['uses' => 'SignInController@exchangeToken']);
-     
+
             $router->group(['middleware' => ['auth:api']], function () {
                 Route::get('/user', ['uses' => 'UserController@index']);
             });

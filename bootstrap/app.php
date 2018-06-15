@@ -10,7 +10,7 @@ class AppTest extends \Orchestra\Testbench\TestCase
         $dotenv = new \Dotenv\Dotenv(__DIR__.'/..', '.env');
         $dotenv->load();
         parent::setUp();
-    } 
+    }
 
     protected function getPackageProviders($app)
     {
@@ -20,11 +20,11 @@ class AppTest extends \Orchestra\Testbench\TestCase
     }
 
     /**
-     * Retrieve app
+     * Retrieve app.
      */
     public function getApp()
     {
-    	return $this->app;
+        return $this->app;
     }
 }
 
@@ -32,4 +32,3 @@ $t = new AppTest();
 $t->setUp();
 
 return $t->getApp();
-

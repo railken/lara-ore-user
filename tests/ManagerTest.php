@@ -8,7 +8,7 @@ use Railken\LaraOre\User\UserManager;
 class ManagerTest extends BaseTest
 {
     use ManagerTestableTrait;
-    
+
     /**
      * Retrieve basic manager.
      *

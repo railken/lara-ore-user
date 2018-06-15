@@ -9,7 +9,7 @@ use Railken\Bag;
 class ApiTest extends BaseTest
 {
     use ApiTestableTrait;
-    
+
     /**
      * Retrieve basic url.
      *
