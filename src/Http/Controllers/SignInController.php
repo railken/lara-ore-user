@@ -34,6 +34,22 @@ class SignInController extends Controller
     }
 
     /**
+     * Serialize token.
+     *
+     * @param \Laravel\Passport\Token $token
+     *
+     * @return array
+     */
+    public function serializeToken($token)
+    {
+        return [
+            'access_token' => $token->accessToken,
+            'token_type'   => 'Bearer',
+            'expire_in'    => 0,
+        ];
+    }
+
+    /**
      * List of all providers.
      *
      * @var array
@@ -142,22 +158,6 @@ class SignInController extends Controller
             'access_token' => $access_token,
             'provider'     => $provider->getName(),
         ]);
-    }
-
-    /**
-     * Serialize token.
-     *
-     * @param \Railken\LaraOre\Api\OAuth\AccessToken $token
-     *
-     * @return array
-     */
-    public function serializeToken($token)
-    {
-        return [
-            'access_token' => $token->accessToken,
-            'token_type'   => 'Bearer',
-            'expire_in'    => 0,
-        ];
     }
 
     /**

@@ -14,7 +14,7 @@ class UsersController extends RestController
     use RestTraits\RestUpdateTrait;
     use RestTraits\RestRemoveTrait;
 
-    protected static $query = [
+    public $queryable = [
         'id',
         'name',
         'email',
@@ -24,7 +24,7 @@ class UsersController extends RestController
         'updated_at',
     ];
 
-    protected static $fillable = [
+    public $fillable = [
         'name',
         'email',
         'password',

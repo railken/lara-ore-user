@@ -11,7 +11,7 @@ class RegistrationController extends Controller
     /**
      * Serialize token.
      *
-     * @param \Railken\LaraOre\Api\OAuth\AccessToken $token
+     * @param \Laravel\Passport\Token $token
      *
      * @return array
      */

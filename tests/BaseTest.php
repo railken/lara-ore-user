@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Railken\LaraCommandTest\Helper;
 use Railken\LaraCommandTest\GeneratorCommandTestable;
 use Illuminate\Support\Facades\Artisan;
+use Railken\Bag;
 
 abstract class BaseTest extends \Orchestra\Testbench\TestCase
 {
@@ -15,6 +16,23 @@ abstract class BaseTest extends \Orchestra\Testbench\TestCase
         return [
             \Railken\LaraOre\UserServiceProvider::class,
         ];
+    }
+    
+    /**
+     * Retrieve correct bag of parameters.
+     *
+     * @return Bag
+     */
+    public function getParameters()
+    {
+        $bag = new Bag();
+        $bag->set('name', "A name");
+        $bag->set('email', "test".microtime(true)."@test.net");
+        $bag->set('password', 'password');
+        // $bag->set('role', 'user');
+        $bag->set('enabled', 1);
+
+        return $bag;
     }
 
     /**
