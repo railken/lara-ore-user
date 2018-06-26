@@ -99,18 +99,4 @@ class User extends Authenticatable implements EntityContract, AgentContract
     {
         $this->attributes['password'] = bcrypt($pass);
     }
-
-    /**
-     * Retrieve user for passport oauth.
-     *
-     * @param string $identifier
-     *
-     * @return User
-     */
-    public function findForPassport($identifier)
-    {
-        return (new \Railken\LaraOre\User\UserManager())->getRepository()->getQuery()->orWhere(function ($q) use ($identifier) {
-            return $q->orWhere('email', $identifier)->orWhere('name', $identifier);
-        })->where('enabled', 1)->first();
-    }
 }
