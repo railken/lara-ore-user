@@ -19,6 +19,7 @@ class UsersController extends RestController
         'name',
         'email',
         'password',
+        'notes',
         'enabled',
         'created_at',
         'updated_at',
@@ -28,6 +29,7 @@ class UsersController extends RestController
         'name',
         'email',
         'password',
+        'notes',
         'enabled',
     ];
 

@@ -19,6 +19,7 @@ class UserFaker
         $bag->set('email', $faker->email);
         $bag->set('password', $faker->password);
         // $bag->set('role', 'user');
+        $bag->set('notes', $faker->realText);
         $bag->set('enabled', 1);
 
         return $bag;

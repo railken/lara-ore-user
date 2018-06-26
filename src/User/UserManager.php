@@ -38,6 +38,7 @@ class UserManager extends ModelManager
         Attributes\Role\RoleAttribute::class,
         Attributes\CreatedAt\CreatedAtAttribute::class,
         Attributes\UpdatedAt\UpdatedAtAttribute::class,
+        Attributes\Notes\NotesAttribute::class,
     ];
 
     /**
