@@ -14,23 +14,6 @@ abstract class BaseTest extends \Orchestra\Testbench\TestCase
     }
     
     /**
-     * Retrieve correct bag of parameters.
-     *
-     * @return Bag
-     */
-    public function getParameters()
-    {
-        $bag = new Bag();
-        $bag->set('name', "A name");
-        $bag->set('email', "test".microtime(true)."@test.net");
-        $bag->set('password', 'password');
-        // $bag->set('role', 'user');
-        $bag->set('enabled', 1);
-
-        return $bag;
-    }
-
-    /**
      * Setup the test environment.
      */
     public function setUp()

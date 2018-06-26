@@ -5,6 +5,7 @@ namespace Railken\LaraOre\User\Tests;
 use Railken\LaraOre\Support\Testing\ApiTestableTrait;
 use Illuminate\Support\Facades\Config;
 use Railken\Bag;
+use Railken\LaraOre\User\UserFaker;
 
 class ApiTest extends BaseTest
 {
@@ -28,6 +29,6 @@ class ApiTest extends BaseTest
     public function testSuccessCommon()
     {
         $this->signIn();
-        $this->commonTest($this->getBaseUrl(), $parameters = $this->getParameters(), (new Bag($parameters))->remove('password'));
+        $this->commonTest($this->getBaseUrl(), UserFaker::make());
     }
 }

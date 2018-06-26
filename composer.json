@@ -10,7 +10,8 @@
         "zizaco/entrust": "^1.9",
         "laravolt/avatar": "^2.0",
         "railken/lara-ore-api": "dev-master",
-        "railken/lara-ore-support": "dev-master"
+        "railken/lara-ore-support": "dev-master",
+        "fzaninotto/faker": "^1.7"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.9.2",

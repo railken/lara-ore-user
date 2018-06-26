@@ -4,6 +4,7 @@ namespace Railken\LaraOre\User\Tests;
 
 use Railken\LaraOre\Support\Testing\ManagerTestableTrait;
 use Railken\LaraOre\User\UserManager;
+use Railken\LaraOre\User\UserFaker;
 
 class ManagerTest extends BaseTest
 {
@@ -22,6 +23,6 @@ class ManagerTest extends BaseTest
     /** @test */
     public function it_will_work()
     {
-        $this->commonTest($this->getManager(), $this->getParameters());
+        $this->commonTest($this->getManager(), UserFaker::make());
     }
 }
