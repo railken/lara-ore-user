@@ -14,6 +14,7 @@ use Railken\Laravel\Manager\ModelManager;
 use Railken\Laravel\Manager\ParameterBag;
 use Railken\Laravel\Manager\ResultAction;
 use Railken\Laravel\Manager\Tokens;
+use Illuminate\Support\Facades\Config;
 
 class UserManager extends ModelManager
 {
@@ -22,8 +23,8 @@ class UserManager extends ModelManager
      *
      * @var string
      */
-    public $entity = User::class;
-
+    public $entity;
+    
     /**
      * Attributes.
      *
@@ -56,11 +57,21 @@ class UserManager extends ModelManager
      */
     public function __construct(AgentContract $agent = null)
     {
-        $this->entity = config('ore.user.entity', User::class);
-        $this->setRepository(new UserRepository($this));
-        $this->setSerializer(new UserSerializer($this));
-        $this->setAuthorizer(new UserAuthorizer($this));
-        $this->setValidator(new UserValidator($this));
+        $this->entity = Config::get('ore.user.entity');
+        $this->attributes = array_merge($this->attributes, array_values(Config::get('ore.user.attributes')));
+        
+        $classRepository = Config::get('ore.user.repository');
+        $this->setRepository(new $classRepository($this));
+
+        $classSerializer = Config::get('ore.user.serializer');
+        $this->setSerializer(new $classSerializer($this));
+
+        $classAuthorizer = Config::get('ore.user.authorizer');
+        $this->setAuthorizer(new $classAuthorizer($this));
+
+        $classValidator = Config::get('ore.user.validator');
+        $this->setValidator(new $classValidator($this));
+
 
         parent::__construct($agent);
     }

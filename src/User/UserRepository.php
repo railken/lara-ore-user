@@ -12,7 +12,7 @@ class UserRepository extends ModelRepository
      *
      * @param string $email
      *
-     * @return user
+     * @return User
      */
     public function findOneByEmail(string $email)
     {

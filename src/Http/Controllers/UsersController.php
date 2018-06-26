@@ -5,6 +5,7 @@ namespace Railken\LaraOre\Http\Controllers;
 use Railken\LaraOre\Api\Http\Controllers\RestController;
 use Railken\LaraOre\Api\Http\Controllers\Traits as RestTraits;
 use Railken\LaraOre\User\UserManager;
+use Illuminate\Support\Facades\Config;
 
 class UsersController extends RestController
 {
@@ -40,6 +41,8 @@ class UsersController extends RestController
      */
     public function __construct(UserManager $manager)
     {
+        $this->queryable = array_merge($this->queryable, array_keys(Config::get('ore.user.attributes')));
+        $this->fillable = array_merge($this->fillable, array_keys(Config::get('ore.user.attributes')));
         $this->manager = $manager;
         $this->manager->setAgent($this->getUser());
         parent::__construct();

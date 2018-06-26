@@ -3,24 +3,30 @@
 namespace Railken\LaraOre\User;
 
 use Illuminate\Database\Eloquent\Model;
-// use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use Railken\Laravel\Manager\Contracts\AgentContract;
 use Railken\Laravel\Manager\Contracts\EntityContract;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Illuminate\Support\Facades\Config;
 
 class User extends Authenticatable implements EntityContract, AgentContract
 {
-    use HasApiTokens, Notifiable, EntrustUserTrait;
+    use HasApiTokens;
+    use Notifiable;
+    use EntrustUserTrait { restore as private restore1; }
+    use SoftDeletes { restore as private restore2; }
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
+     * {@inheritDoc}
      */
-    protected $table = 'ore_users';
+    public function restore()
+    {
+        $this->restore1();
+        $this->restore2();
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -52,7 +58,7 @@ class User extends Authenticatable implements EntityContract, AgentContract
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
     ];
 
     /**
@@ -73,6 +79,7 @@ class User extends Authenticatable implements EntityContract, AgentContract
     {
         parent::__construct($attributes);
         $this->table = \Illuminate\Support\Facades\Config::get('ore.user.table');
+        $this->fillable = array_merge($this->fillable, array_keys(Config::get('ore.user.attributes')));
     }
 
     /**

@@ -33,7 +33,7 @@ class UserServiceProvider extends ServiceProvider
         config(['auth.guards.api.driver' => 'passport']);
         config(['auth.guards.api.provider' => 'users']);
         config(['auth.providers.users.driver' => 'eloquent']);
-        config(['auth.providers.users.model' => \Railken\LaraOre\User\User::class]);
+        config(['auth.providers.users.model' => Config::get('ore.user.entity')]);
 
         $this->commands([FlushPermissionsCommand::class, UserInstallCommand::class]);
         $this->loadRoutes();
@@ -90,14 +90,14 @@ class UserServiceProvider extends ServiceProvider
             });
         });
 
-        Router::group(array_merge(Config::get('ore.user.router'), [
-            'namespace' => 'Railken\LaraOre\Http\Controllers',
-        ]), function ($router) {
-            $router->get('/', ['uses' => 'UsersController@index']);
-            $router->post('/', ['uses' => 'UsersController@create']);
-            $router->put('/{id}', ['uses' => 'UsersController@update']);
-            $router->delete('/{id}', ['uses' => 'UsersController@remove']);
-            $router->get('/{id}', ['uses' => 'UsersController@show']);
+        Router::group(Config::get('ore.user.http.router'), function ($router) {
+            $controller = Config::get('ore.user.http.controller');
+            
+            $router->get('/', ['uses' => $controller . '@index']);
+            $router->post('/', ['uses' => $controller . '@create']);
+            $router->put('/{id}', ['uses' => $controller . '@update']);
+            $router->delete('/{id}', ['uses' => $controller . '@remove']);
+            $router->get('/{id}', ['uses' => $controller . '@show']);
         });
     }
 }

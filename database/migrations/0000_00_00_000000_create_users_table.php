@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->boolean('enabled')->default(0);
             $table->string('role')->default('user');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
