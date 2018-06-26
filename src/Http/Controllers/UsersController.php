@@ -2,12 +2,11 @@
 
 namespace Railken\LaraOre\Http\Controllers;
 
-use Railken\LaraOre\Api\Http\Controllers\RestController;
+use Railken\LaraOre\Api\Http\Controllers\RestConfigurableController;
 use Railken\LaraOre\Api\Http\Controllers\Traits as RestTraits;
-use Railken\LaraOre\User\UserManager;
 use Illuminate\Support\Facades\Config;
 
-class UsersController extends RestController
+class UsersController extends RestConfigurableController
 {
     use RestTraits\RestIndexTrait;
     use RestTraits\RestShowTrait;
@@ -15,6 +14,18 @@ class UsersController extends RestController
     use RestTraits\RestUpdateTrait;
     use RestTraits\RestRemoveTrait;
 
+    /**
+     * The config path
+     *
+     * @var string
+     */
+    public $config = 'ore.user';
+
+    /**
+     * The attributes that are queryable.
+     *
+     * @var array
+     */
     public $queryable = [
         'id',
         'token',
@@ -27,6 +38,11 @@ class UsersController extends RestController
         'updated_at',
     ];
 
+    /**
+     * The attributes that are fillable.
+     *
+     * @var array
+     */
     public $fillable = [
         'name',
         'token',
@@ -35,26 +51,4 @@ class UsersController extends RestController
         'notes',
         'enabled',
     ];
-
-    /**
-     * Construct.
-     */
-    public function __construct(UserManager $manager)
-    {
-        $this->queryable = array_merge($this->queryable, array_keys(Config::get('ore.user.attributes')));
-        $this->fillable = array_merge($this->fillable, array_keys(Config::get('ore.user.attributes')));
-        $this->manager = $manager;
-        $this->manager->setAgent($this->getUser());
-        parent::__construct();
-    }
-
-    /**
-     * Create a new instance for query.
-     *
-     * @return \Illuminate\Database\Query\Builder
-     */
-    public function getQuery()
-    {
-        return $this->manager->repository->getQuery();
-    }
 }

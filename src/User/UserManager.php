@@ -24,7 +24,7 @@ class UserManager extends ModelManager
      * @var string
      */
     public $entity;
-    
+
     /**
      * Attributes.
      *
@@ -71,7 +71,6 @@ class UserManager extends ModelManager
 
         $classValidator = Config::get('ore.user.validator');
         $this->setValidator(new $classValidator($this));
-
 
         parent::__construct($agent);
     }
