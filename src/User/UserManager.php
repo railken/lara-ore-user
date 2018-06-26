@@ -39,6 +39,7 @@ class UserManager extends ModelManager
         Attributes\CreatedAt\CreatedAtAttribute::class,
         Attributes\UpdatedAt\UpdatedAtAttribute::class,
         Attributes\Notes\NotesAttribute::class,
+        Attributes\Token\TokenAttribute::class,
     ];
 
     /**

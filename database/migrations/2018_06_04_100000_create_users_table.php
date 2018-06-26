@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create(Config::get('ore.user.table'), function ($table) {
             $table->increments('id');
+            $table->string('token')->unique();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');

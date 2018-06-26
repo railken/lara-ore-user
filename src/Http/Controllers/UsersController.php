@@ -16,6 +16,7 @@ class UsersController extends RestController
 
     public $queryable = [
         'id',
+        'token',
         'name',
         'email',
         'password',
@@ -27,6 +28,7 @@ class UsersController extends RestController
 
     public $fillable = [
         'name',
+        'token',
         'email',
         'password',
         'notes',

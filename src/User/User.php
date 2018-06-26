@@ -34,6 +34,7 @@ class User extends Authenticatable implements EntityContract, AgentContract
         'enabled',
         'role',
         'notes',
+        'token',
     ];
 
     /**

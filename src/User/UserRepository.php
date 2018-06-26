@@ -30,14 +30,16 @@ class UserRepository extends ModelRepository
     }
 
     /**
-     * Find a user by uid and year.
+     * Generate token
      *
-     * @param string $year
-     *
-     * @return \Illuminate\Database\Query\Builder
+     * @return string
      */
-    public function getLastOccurenceByUidYear($year)
+    public function generateToken()
     {
-        return $this->getQuery()->where('uid', 'like', '%/'.$year)->orderBy('uid', 'DESC');
+        do {
+            $token = str_random(8) . "-" . str_random(4) . " - ". str_random(4) . " - ". str_random(8);
+        } while ($this->getQuery()->where('token', $token)->count() > 0);
+
+        return $token;
     }
 }
