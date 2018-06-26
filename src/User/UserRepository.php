@@ -37,7 +37,7 @@ class UserRepository extends ModelRepository
     public function generateToken()
     {
         do {
-            $token = str_random(8) . "-" . str_random(4) . " - ". str_random(4) . " - ". str_random(8);
+            $token = str_random(32);
         } while ($this->getQuery()->where('token', $token)->count() > 0);
 
         return $token;
