@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
 use Railken\Laravel\Manager\Contracts\AgentContract;
 use Railken\Laravel\Manager\Contracts\EntityContract;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
@@ -14,7 +13,6 @@ use Illuminate\Support\Facades\Config;
 
 class User extends Authenticatable implements EntityContract, AgentContract
 {
-    use HasApiTokens;
     use Notifiable;
     use EntrustUserTrait { restore as private restore1; }
     use SoftDeletes { restore as private restore2; }

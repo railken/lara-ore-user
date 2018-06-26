@@ -118,9 +118,6 @@ return [
         */
         'router' => [
             'prefix'      => '/admin/users',
-            'middlewares' => [
-                 'auth:api',
-            ],
         ],
     ]
 ];

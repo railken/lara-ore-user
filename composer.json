@@ -4,7 +4,6 @@
     "license": "MIT",
     "require": {
         "php": ">=7.1",
-        "laravel/passport": "^5.0",
         "railken/bag": "^1.2",
         "railken/laravel-manager": "^3.1",
         "zizaco/entrust": "^1.9",
