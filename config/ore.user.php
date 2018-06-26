@@ -106,7 +106,7 @@ return [
         | Here you may define the controller that will handle all the requests
         |
         */
-        'controller' => Railken\LaraOre\Http\Controllers\UsersController::class,
+        'controller' => Railken\LaraOre\Http\Controllers\Admin\UsersController::class,
         
         /*
         |--------------------------------------------------------------------------
