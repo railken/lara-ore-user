@@ -4,14 +4,13 @@ namespace Railken\LaraOre\User;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Railken\Laravel\Manager\Contracts\AgentContract;
 use Railken\Laravel\Manager\Contracts\EntityContract;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Support\Facades\Config;
 
-class User extends Authenticatable implements EntityContract, AgentContract
+class User extends Model implements EntityContract, AgentContract
 {
     use Notifiable;
     use EntrustUserTrait { restore as private restore1; }
