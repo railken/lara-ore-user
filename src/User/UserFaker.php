@@ -17,7 +17,7 @@ class UserFaker
         $bag = new Bag();
         $bag->set('name', $faker->name);
         $bag->set('email', $faker->email);
-        $bag->set('password', $faker->password);
+        $bag->set('password', str_random(16));
         // $bag->set('role', 'user');
         $bag->set('notes', $faker->realText);
         $bag->set('enabled', 1);
