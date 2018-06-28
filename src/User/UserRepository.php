@@ -20,16 +20,6 @@ class UserRepository extends ModelRepository
     }
 
     /**
-     * Find all pending users expired.
-     *
-     * @return \Illuminate\Database\Query\Builder
-     */
-    public function getExpiredPendingUsers()
-    {
-        return $this->getQuery()->where('enabled', 0)->where('created_at', '<=', (new DateTime())->modify('-3 hours'))->get();
-    }
-
-    /**
      * Generate token
      *
      * @return string
