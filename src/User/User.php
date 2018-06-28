@@ -78,15 +78,7 @@ class User extends Model implements EntityContract, AgentContract
         $this->table = \Illuminate\Support\Facades\Config::get('ore.user.table');
         $this->fillable = array_merge($this->fillable, array_keys(Config::get('ore.user.attributes')));
     }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function pendingEmail()
-    {
-        return $this->hasOne(UserPendingEmail::class, 'user_id')->latest();
-    }
-
+    
     /**
      * Set password attribute.
      *
