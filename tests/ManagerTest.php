@@ -25,4 +25,15 @@ class ManagerTest extends BaseTest
     {
         $this->commonTest($this->getManager(), UserFaker::make());
     }
+
+    /** *@test */
+    public function email()
+    {
+        $parameters = UserFaker::make();
+
+        $this->getManager()->create($parameters);
+        $resource = $this->getManager()->getRepository()->findOneByEmail($parameters->email);
+
+        $this->assertEquals($parameters->email, $resource->email);
+    }
 }
