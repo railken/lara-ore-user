@@ -1,6 +1,6 @@
 # lara-ore-user
 
-[![Build Status](https://img.shields.io/travis/railken/lara-ore-user/master.svg?style=flat-square?maxAge=3600)](https://travis-ci.org/railken/lara-ore-user)
+[![Build Status](https://img.shields.io/travis/railken/lara-ore-user/master.svg?style=flat-square&maxAge=3600)](https://travis-ci.org/railken/lara-ore-user)
 [![StyleCI](https://github.styleci.io/repos/134565811/shield?branch=master)](https://github.styleci.io/repos/134565811)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
