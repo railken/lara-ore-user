@@ -2,8 +2,8 @@
 
 namespace Railken\LaraOre\User;
 
-use Railken\Bag;
 use Faker\Factory;
+use Railken\Bag;
 
 class UserFaker
 {
@@ -13,7 +13,7 @@ class UserFaker
     public static function make()
     {
         $faker = Factory::create();
-        
+
         $bag = new Bag();
         $bag->set('name', $faker->name);
         $bag->set('email', $faker->email);

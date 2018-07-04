@@ -46,15 +46,14 @@ class UserRefreshTokenCommand extends Command
             $result = $manager->update($user, ['token' => $token]);
 
             if ($result->ok()) {
-                $this->info(sprintf("Updated user #%s with token %s", $user->id, $token));
+                $this->info(sprintf('Updated user #%s with token %s', $user->id, $token));
             } else {
-                $this->error(sprintf("Error while updating user #%s with token %s", $user->id, $token));
+                $this->error(sprintf('Error while updating user #%s with token %s', $user->id, $token));
 
                 if (!$this->option('ignoreErrors')) {
                     return;
                 }
             }
-
         }
     }
 }

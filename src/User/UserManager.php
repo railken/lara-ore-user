@@ -2,19 +2,10 @@
 
 namespace Railken\LaraOre\User;
 
-use DateTime;
-use Exception;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Railken\Bag;
-use Railken\Laravel\Manager\Contracts\AgentContract;
-use Railken\Laravel\Manager\Contracts\EntityContract;
-use Railken\Laravel\Manager\ModelManager;
-use Railken\Laravel\Manager\ParameterBag;
-use Railken\Laravel\Manager\ResultAction;
-use Railken\Laravel\Manager\Tokens;
 use Illuminate\Support\Facades\Config;
+use Railken\Laravel\Manager\Contracts\AgentContract;
+use Railken\Laravel\Manager\ModelManager;
+use Railken\Laravel\Manager\Tokens;
 
 class UserManager extends ModelManager
 {
@@ -59,7 +50,7 @@ class UserManager extends ModelManager
     {
         $this->entity = Config::get('ore.user.entity');
         $this->attributes = array_merge($this->attributes, array_values(Config::get('ore.user.attributes')));
-        
+
         $classRepository = Config::get('ore.user.repository');
         $this->setRepository(new $classRepository($this));
 

@@ -3,8 +3,8 @@
 namespace Railken\LaraOre\User\Tests;
 
 use Railken\LaraOre\Support\Testing\ManagerTestableTrait;
-use Railken\LaraOre\User\UserManager;
 use Railken\LaraOre\User\UserFaker;
+use Railken\LaraOre\User\UserManager;
 
 class ManagerTest extends BaseTest
 {

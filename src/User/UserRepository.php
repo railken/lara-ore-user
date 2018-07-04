@@ -2,7 +2,6 @@
 
 namespace Railken\LaraOre\User;
 
-use DateTime;
 use Railken\Laravel\Manager\ModelRepository;
 
 class UserRepository extends ModelRepository
@@ -20,7 +19,7 @@ class UserRepository extends ModelRepository
     }
 
     /**
-     * Generate token
+     * Generate token.
      *
      * @return string
      */
@@ -34,7 +33,7 @@ class UserRepository extends ModelRepository
     }
 
     /**
-     * Find all user that have a null token
+     * Find all user that have a null token.
      *
      * @param bool $force
      *

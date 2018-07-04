@@ -2,9 +2,8 @@
 
 namespace Railken\LaraOre\User\Tests;
 
-use Railken\LaraOre\Support\Testing\ApiTestableTrait;
 use Illuminate\Support\Facades\Config;
-use Railken\Bag;
+use Railken\LaraOre\Support\Testing\ApiTestableTrait;
 use Railken\LaraOre\User\UserFaker;
 
 class ApiTest extends BaseTest
