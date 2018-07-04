@@ -2,8 +2,6 @@
 
 namespace Railken\LaraOre\User\Tests;
 
-use Railken\Bag;
-
 abstract class BaseTest extends \Orchestra\Testbench\TestCase
 {
     protected function getPackageProviders($app)
@@ -12,7 +10,7 @@ abstract class BaseTest extends \Orchestra\Testbench\TestCase
             \Railken\LaraOre\UserServiceProvider::class,
         ];
     }
-    
+
     /**
      * Setup the test environment.
      */

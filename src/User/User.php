@@ -5,10 +5,10 @@ namespace Railken\LaraOre\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Config;
 use Railken\Laravel\Manager\Contracts\AgentContract;
 use Railken\Laravel\Manager\Contracts\EntityContract;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
-use Illuminate\Support\Facades\Config;
 
 class User extends Model implements EntityContract, AgentContract
 {
@@ -17,7 +17,7 @@ class User extends Model implements EntityContract, AgentContract
     use SoftDeletes { restore as private restore2; }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function restore()
     {
@@ -78,7 +78,7 @@ class User extends Model implements EntityContract, AgentContract
         $this->table = \Illuminate\Support\Facades\Config::get('ore.user.table');
         $this->fillable = array_merge($this->fillable, array_keys(Config::get('ore.user.attributes')));
     }
-    
+
     /**
      * Set password attribute.
      *

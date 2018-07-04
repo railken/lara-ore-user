@@ -65,7 +65,7 @@ class TokenAttribute extends BaseAttribute
     }
 
     /**
-     * Retrieve default value
+     * Retrieve default value.
      *
      * @param EntityContract $entity
      *

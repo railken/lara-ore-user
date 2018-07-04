@@ -3,12 +3,11 @@
 namespace Railken\LaraOre;
 
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Railken\LaraOre\Api\Support\Router;
 use Railken\LaraOre\Console\Commands\UserInstallCommand;
-use Railken\LaraOre\Permission\Console\Commands\FlushPermissionsCommand;
 use Railken\LaraOre\Console\Commands\UserRefreshTokenCommand;
+use Railken\LaraOre\Permission\Console\Commands\FlushPermissionsCommand;
 
 class UserServiceProvider extends ServiceProvider
 {
@@ -28,7 +27,6 @@ class UserServiceProvider extends ServiceProvider
         config(['entrust.role' => "Railken\LaraOre\Permission\Role"]);
         config(['entrust.permission' => "Railken\LaraOre\Permission\Permission"]);
         config(['entrust.user' => Config::get('ore.user.entity')]);
-
 
         $this->commands([FlushPermissionsCommand::class, UserInstallCommand::class, UserRefreshTokenCommand::class]);
         $this->loadRoutes();
@@ -54,12 +52,12 @@ class UserServiceProvider extends ServiceProvider
     {
         Router::group(Config::get('ore.user.http.router'), function ($router) {
             $controller = Config::get('ore.user.http.controller');
-            
-            $router->get('/', ['uses' => $controller . '@index']);
-            $router->post('/', ['uses' => $controller . '@create']);
-            $router->put('/{id}', ['uses' => $controller . '@update']);
-            $router->delete('/{id}', ['uses' => $controller . '@remove']);
-            $router->get('/{id}', ['uses' => $controller . '@show']);
+
+            $router->get('/', ['uses' => $controller.'@index']);
+            $router->post('/', ['uses' => $controller.'@create']);
+            $router->put('/{id}', ['uses' => $controller.'@update']);
+            $router->delete('/{id}', ['uses' => $controller.'@remove']);
+            $router->get('/{id}', ['uses' => $controller.'@show']);
         });
     }
 }
