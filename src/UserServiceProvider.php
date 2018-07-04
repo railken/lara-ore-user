@@ -8,6 +8,7 @@ use Illuminate\Support\ServiceProvider;
 use Railken\LaraOre\Api\Support\Router;
 use Railken\LaraOre\Console\Commands\UserInstallCommand;
 use Railken\LaraOre\Permission\Console\Commands\FlushPermissionsCommand;
+use Railken\LaraOre\Console\Commands\UserRefreshTokenCommand;
 
 class UserServiceProvider extends ServiceProvider
 {
@@ -29,7 +30,7 @@ class UserServiceProvider extends ServiceProvider
         config(['entrust.user' => Config::get('ore.user.entity')]);
 
 
-        $this->commands([FlushPermissionsCommand::class, UserInstallCommand::class]);
+        $this->commands([FlushPermissionsCommand::class, UserInstallCommand::class, UserRefreshTokenCommand::class]);
         $this->loadRoutes();
     }
 

@@ -32,4 +32,18 @@ class UserRepository extends ModelRepository
 
         return $token;
     }
+
+    /**
+     * Find all user that have a null token
+     *
+     * @param bool $force
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function findAllToRefreshToken(bool $force = false)
+    {
+        $query = $this->newQuery();
+
+        return $force ? $query->get() : $query->whereNull('token')->get();
+    }
 }
