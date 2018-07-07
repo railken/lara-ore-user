@@ -27,6 +27,6 @@ class ApiTest extends BaseTest
      */
     public function testSuccessCommon()
     {
-        $this->commonTest($this->getBaseUrl(), UserFaker::make());
+        $this->commonTest($this->getBaseUrl(), UserFaker::make()->parameters());
     }
 }

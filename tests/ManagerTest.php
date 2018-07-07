@@ -23,13 +23,13 @@ class ManagerTest extends BaseTest
     /** @test */
     public function it_will_work()
     {
-        $this->commonTest($this->getManager(), UserFaker::make());
+        $this->commonTest($this->getManager(), UserFaker::make()->parameters());
     }
 
     /** *@test */
     public function email()
     {
-        $parameters = UserFaker::make();
+        $parameters = UserFaker::make()->parameters();
 
         $this->getManager()->create($parameters);
         $resource = $this->getManager()->getRepository()->findOneByEmail($parameters->email);

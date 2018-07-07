@@ -4,13 +4,19 @@ namespace Railken\LaraOre\User;
 
 use Faker\Factory;
 use Railken\Bag;
+use Railken\Laravel\Manager\BaseFaker;
 
-class UserFaker
+class UserFaker extends BaseFaker
 {
     /**
-     * @return array
+     * @var string
      */
-    public static function make()
+    protected $manager = UserManager::class;
+
+    /**
+     * @return \Railken\Bag
+     */
+    public function parameters()
     {
         $faker = Factory::create();
 

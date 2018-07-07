@@ -13,11 +13,10 @@
         "railken/lara-ore-support": "dev-master"
     },
     "require-dev": {
-        "orchestra/testbench": "~3.6",
-        "phpstan/phpstan": "^0.9.2",
         "phpunit/phpunit": "~7.0",
-        "friendsofphp/php-cs-fixer": "^2.8.1",
-        "phpmetrics/phpmetrics": "^2.3"
+        "orchestra/testbench": "~3.6",
+        "phpstan/phpstan": "^0.10",
+        "friendsofphp/php-cs-fixer": "^2.8.1"
     },
     "autoload": {
         "psr-4" : {
