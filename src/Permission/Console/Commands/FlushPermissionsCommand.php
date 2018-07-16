@@ -42,7 +42,7 @@ class FlushPermissionsCommand extends Command
 
         // Retrieve all managers and create relative permissions
 
-        $managers = config('ore.user.permission.managers', []);
+        $managers = config('ore.permission.managers', []);
 
         foreach ($managers as $manager) {
             $manager = new $manager();
