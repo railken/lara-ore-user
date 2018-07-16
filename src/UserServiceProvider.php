@@ -27,6 +27,10 @@ class UserServiceProvider extends ServiceProvider
         config(['entrust.role' => "Railken\LaraOre\Permission\Role"]);
         config(['entrust.permission' => "Railken\LaraOre\Permission\Permission"]);
         config(['entrust.user' => Config::get('ore.user.entity')]);
+        
+        config(['ore.permission.managers' => array_merge(Config::get('ore.permission.managers', []), [
+            \Railken\LaraOre\User\UserManager::class,
+        ])]);
 
         $this->commands([FlushPermissionsCommand::class, UserInstallCommand::class, UserRefreshTokenCommand::class]);
         $this->loadRoutes();
