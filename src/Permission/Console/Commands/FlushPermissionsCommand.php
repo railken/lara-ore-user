@@ -24,8 +24,6 @@ class FlushPermissionsCommand extends Command
 
     /**
      * Create a new command instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -39,7 +37,6 @@ class FlushPermissionsCommand extends Command
      */
     public function handle()
     {
-
         // Retrieve all managers and create relative permissions
 
         $managers = config('ore.permission.managers', []);

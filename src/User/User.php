@@ -17,15 +17,6 @@ class User extends Model implements EntityContract, AgentContract
     use SoftDeletes { restore as private restore2; }
 
     /**
-     * {@inheritdoc}
-     */
-    public function restore()
-    {
-        $this->restore1();
-        $this->restore2();
-    }
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -46,7 +37,6 @@ class User extends Model implements EntityContract, AgentContract
      * @var array
      */
     protected $casts = [
-
     ];
 
     /**
@@ -64,7 +54,6 @@ class User extends Model implements EntityContract, AgentContract
      * @var array
      */
     protected $dates = [
-
     ];
 
     /**
@@ -80,11 +69,18 @@ class User extends Model implements EntityContract, AgentContract
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function restore()
+    {
+        $this->restore1();
+        $this->restore2();
+    }
+
+    /**
      * Set password attribute.
      *
      * @param string $pass
-     *
-     * @return void
      */
     public function setPasswordAttribute($pass)
     {
