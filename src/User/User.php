@@ -10,6 +10,14 @@ use Railken\Laravel\Manager\Contracts\AgentContract;
 use Railken\Laravel\Manager\Contracts\EntityContract;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 
+/**
+ * @property string $name
+ * @property string $email
+ * @property string $role
+ * @property int    $enabled
+ * @property string $notes
+ * @property string $token
+ */
 class User extends Model implements EntityContract, AgentContract
 {
     use Notifiable;
