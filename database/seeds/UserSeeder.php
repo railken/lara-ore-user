@@ -25,11 +25,7 @@ class UserSeeder extends Seeder
         $um = new UserManager();
 
         foreach ($users as $user) {
-            $result = $um->create($user);
-
-            if (!$result->ok()) {
-                return 0;
-            }
+            $um->createOrFail($user);
         }
 
         return 1;
