@@ -6,9 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Config;
-use Railken\Laravel\Manager\Contracts\AgentContract;
 use Railken\Laravel\Manager\Contracts\EntityContract;
-use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 /**
  * @property string $name
@@ -18,11 +16,10 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
  * @property string $notes
  * @property string $token
  */
-class User extends Model implements EntityContract, AgentContract
+class User extends Model implements EntityContract
 {
     use Notifiable;
-    use EntrustUserTrait { restore as private restore1; }
-    use SoftDeletes { restore as private restore2; }
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -74,15 +71,6 @@ class User extends Model implements EntityContract, AgentContract
         parent::__construct($attributes);
         $this->table = \Illuminate\Support\Facades\Config::get('ore.user.table');
         $this->fillable = array_merge($this->fillable, array_keys(Config::get('ore.user.attributes')));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function restore()
-    {
-        $this->restore1();
-        $this->restore2();
     }
 
     /**

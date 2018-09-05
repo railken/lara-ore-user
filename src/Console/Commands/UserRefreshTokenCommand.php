@@ -37,9 +37,11 @@ class UserRefreshTokenCommand extends Command
     public function handle()
     {
         $manager = new UserManager();
+
+        /** @var \Railken\LaraOre\User\UserRepository */
         $repository = $manager->getRepository();
 
-        foreach ($repository->findAllToRefreshToken($this->option('force')) as $user) {
+        foreach ($repository->findAllToRefreshToken((bool) $this->option('force')) as $user) {
             $token = $repository->generateToken();
             $result = $manager->update($user, ['token' => $token]);
 

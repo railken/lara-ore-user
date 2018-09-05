@@ -73,6 +73,9 @@ class TokenAttribute extends BaseAttribute
      */
     public function getDefault(EntityContract $entity)
     {
-        return $this->getManager()->getRepository()->generateToken();
+        /** @var \Railken\LaraOre\User\UserRepository */
+        $repository = $this->getManager()->getRepository();
+
+        return $repository->generateToken();
     }
 }

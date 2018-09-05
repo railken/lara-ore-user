@@ -6,7 +6,6 @@
         "php": ">=7.1",
         "railken/bag": "^1.2",
         "railken/laravel-manager": "^3.1",
-        "zizaco/entrust": "^1.9",
         "laravolt/avatar": "^2.0",
         "fzaninotto/faker": "^1.7",
         "railken/lara-ore-api": "dev-master",

@@ -8,7 +8,6 @@ use Illuminate\Support\ServiceProvider;
 use Railken\LaraOre\Api\Support\Router;
 use Railken\LaraOre\Console\Commands\UserInstallCommand;
 use Railken\LaraOre\Console\Commands\UserRefreshTokenCommand;
-use Railken\LaraOre\Permission\Console\Commands\FlushPermissionsCommand;
 
 class UserServiceProvider extends ServiceProvider
 {
@@ -23,15 +22,11 @@ class UserServiceProvider extends ServiceProvider
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
-        config(['entrust.role' => "Railken\LaraOre\Permission\Role"]);
-        config(['entrust.permission' => "Railken\LaraOre\Permission\Permission"]);
-        config(['entrust.user' => Config::get('ore.user.entity')]);
-
-        config(['ore.permission.managers' => array_merge(Config::get('ore.permission.managers', []), [
+        config(['ore.managers' => array_merge(Config::get('ore.managers', []), [
             \Railken\LaraOre\User\UserManager::class,
         ])]);
 
-        $this->commands([FlushPermissionsCommand::class, UserInstallCommand::class, UserRefreshTokenCommand::class]);
+        $this->commands([UserInstallCommand::class, UserRefreshTokenCommand::class]);
         $this->loadRoutes();
     }
 
@@ -42,7 +37,6 @@ class UserServiceProvider extends ServiceProvider
     {
         $this->app->register(\Railken\Laravel\Manager\ManagerServiceProvider::class);
         $this->app->register(\Railken\LaraOre\ApiServiceProvider::class);
-        $this->app->register(\Zizaco\Entrust\EntrustServiceProvider::class);
         $this->mergeConfigFrom(__DIR__.'/../config/ore.user.php', 'ore.user');
     }
 
