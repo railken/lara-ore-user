@@ -107,7 +107,7 @@ return [
             'enabled'    => true,
             'controller' => Railken\LaraOre\Http\Controllers\Admin\UsersController::class,
             'router'     => [
-                'prefix'      => '/admin/users',
+                'prefix'      => '/users',
             ],
         ],
     ],
