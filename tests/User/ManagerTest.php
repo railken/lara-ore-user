@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\LaraOre\User\Tests;
+namespace Railken\LaraOre\Tests\User;
 
 use Railken\LaraOre\Support\Testing\ManagerTestableTrait;
 use Railken\LaraOre\User\UserFaker;

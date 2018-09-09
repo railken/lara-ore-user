@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\LaraOre\User\Tests;
+namespace Railken\LaraOre\Tests\User;
 
 abstract class BaseTest extends \Orchestra\Testbench\TestCase
 {
@@ -9,13 +9,12 @@ abstract class BaseTest extends \Orchestra\Testbench\TestCase
      */
     public function setUp()
     {
-        $dotenv = new \Dotenv\Dotenv(__DIR__.'/..', '.env');
+        $dotenv = new \Dotenv\Dotenv(__DIR__.'/../..', '.env');
         $dotenv->load();
 
         parent::setUp();
 
         $this->artisan('migrate:fresh');
-        // $this->artisan('vendor:publish', ['--provider' => 'Railken\LaraOre\UserServiceProvider', '--force' => true]);
         $this->artisan('lara-ore:user:install');
         $this->artisan('migrate');
     }
