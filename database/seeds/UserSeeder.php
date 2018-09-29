@@ -1,9 +1,9 @@
 <?php
 
-namespace Railken\LaraOre\User\Database\Seeds;
+namespace Railken\Amethyst\Database\Seeds;
 
 use Illuminate\Database\Seeder;
-use Railken\LaraOre\User\UserManager;
+use Railken\Amethyst\Managers\UserManager;
 
 class UserSeeder extends Seeder
 {

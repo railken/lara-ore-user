@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\LaraOre\Console\Commands;
+namespace Railken\Amethyst\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -11,14 +11,14 @@ class UserInstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'lara-ore:user:install';
+    protected $signature = 'amethyst:user:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install lara-ore-user package';
+    protected $description = 'Install amethyst-user package';
 
     /**
      * Create a new command instance.
@@ -35,6 +35,6 @@ class UserInstallCommand extends Command
      */
     public function handle()
     {
-        $this->call('db:seed', ['--class' => 'Railken\LaraOre\User\Database\Seeds\UserSeeder']);
+        $this->call('db:seed', ['--class' => 'Railken\Amethyst\Database\Seeds\UserSeeder']);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Schema;
 
@@ -11,7 +12,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create(Config::get('ore.user.table'), function ($table) {
+        Schema::create(Config::get('amethyst.user.managers.user.table'), function (Blueprint $table) {
             $table->increments('id');
             $table->string('token')->unique();
             $table->string('name');
@@ -30,6 +31,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(Config::get('ore.user.table'));
+        Schema::dropIfExists(Config::get('amethyst.user.managers.user.table'));
     }
 }

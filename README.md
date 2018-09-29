@@ -1,10 +1,8 @@
-# lara-ore-user
+# amethyst-foo
 
-[![Build Status](https://travis-ci.org/railken/lara-ore-user.svg?branch=master)](https://travis-ci.org/railken/lara-ore-user)
+[![Build Status](https://travis-ci.org/railken/amethyst-foo.svg?branch=master)](https://travis-ci.org/railken/amethyst-foo)
 
-This is a [lara-ore](https://github.com/railken/lara-ore) package.
-
-Handle users, simple as that.
+[Amethyst](https://github.com/railken/amethyst) package.
 
 # Requirements
 
@@ -15,7 +13,7 @@ PHP 7.1 and later.
 You can install it via [Composer](https://getcomposer.org/) by typing the following command:
 
 ```bash
-composer require railken/lara-ore-user
+composer require railken/amethyst-foo
 ```
 
 The package will automatically register itself.

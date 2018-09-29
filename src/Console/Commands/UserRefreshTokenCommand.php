@@ -1,9 +1,9 @@
 <?php
 
-namespace Railken\LaraOre\Console\Commands;
+namespace Railken\Amethyst\Console\Commands;
 
 use Illuminate\Console\Command;
-use Railken\LaraOre\User\UserManager;
+use Railken\Amethyst\Managers\UserManager;
 
 class UserRefreshTokenCommand extends Command
 {
@@ -12,7 +12,7 @@ class UserRefreshTokenCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'lara-ore:user:refresh-token {--force} {--ignoreErrors}';
+    protected $signature = 'amethyst:user:refresh-token {--force} {--ignoreErrors}';
 
     /**
      * The console command description.
@@ -38,7 +38,6 @@ class UserRefreshTokenCommand extends Command
     {
         $manager = new UserManager();
 
-        /** @var \Railken\LaraOre\User\UserRepository */
         $repository = $manager->getRepository();
 
         foreach ($repository->findAllToRefreshToken((bool) $this->option('force')) as $user) {
