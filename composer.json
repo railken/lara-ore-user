@@ -1,6 +1,6 @@
 {
-    "name": "railken/amethyst-foo",
-    "keywords": ["laravel", "amethyst", "amethyst-foo", "foo"],
+    "name": "railken/amethyst-user",
+    "keywords": ["laravel", "amethyst", "amethyst-user", "user"],
     "license": "MIT",
     "require": {
         "php": ">=7.1",
