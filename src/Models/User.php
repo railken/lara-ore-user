@@ -20,6 +20,15 @@ class User extends Model implements EntityContract
 {
     use SoftDeletes;
 
+    /** 
+     * The attributes that should be hidden for arrays. 
+     *  
+     * @var array   
+     */ 
+    protected $hidden = [   
+        'password', 
+    ];
+    
     /**
      * Creates a new instance of the model.
      *
@@ -30,5 +39,15 @@ class User extends Model implements EntityContract
         parent::__construct($attributes);
         $this->table = Config::get('amethyst.user.managers.user.table');
         $this->fillable = (new UserSchema())->getNameFillableAttributes();
+    }
+
+    /** 
+     * Set password attribute.  
+     *  
+     * @param string $pass  
+     */ 
+    public function setPasswordAttribute($pass) 
+    {   
+        $this->attributes['password'] = bcrypt($pass);  
     }
 }
