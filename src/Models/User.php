@@ -4,8 +4,7 @@ namespace Railken\Amethyst\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Config;
-use Railken\Amethyst\Schemas\UserSchema;
+use Railken\Amethyst\Common\ConfigurableModel;
 use Railken\Lem\Contracts\EntityContract;
 
 /**
@@ -18,36 +17,35 @@ use Railken\Lem\Contracts\EntityContract;
  */
 class User extends Model implements EntityContract
 {
-    use SoftDeletes;
+    use SoftDeletes, ConfigurableModel;
 
-    /** 
-     * The attributes that should be hidden for arrays. 
-     *  
-     * @var array   
-     */ 
-    protected $hidden = [   
-        'password', 
-    ];
-    
     /**
-     * Creates a new instance of the model.
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+    ];
+
+    /**
+     * Create a new Eloquent model instance.
      *
      * @param array $attributes
      */
     public function __construct(array $attributes = [])
     {
+        $this->ini('amethyst.user.data.user');
         parent::__construct($attributes);
-        $this->table = Config::get('amethyst.user.managers.user.table');
-        $this->fillable = (new UserSchema())->getNameFillableAttributes();
     }
 
-    /** 
-     * Set password attribute.  
-     *  
-     * @param string $pass  
-     */ 
-    public function setPasswordAttribute($pass) 
-    {   
-        $this->attributes['password'] = bcrypt($pass);  
+    /**
+     * Set password attribute.
+     *
+     * @param string $pass
+     */
+    public function setPasswordAttribute($pass)
+    {
+        $this->attributes['password'] = bcrypt($pass);
     }
 }
