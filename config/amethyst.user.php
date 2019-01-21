@@ -35,11 +35,11 @@ return [
     'http' => [
         'admin' => [
             'user' => [
-                'enabled'     => true,
-                'controller'  => Railken\Amethyst\Http\Controllers\Admin\UsersController::class,
-                'router'      => [
-                    'as'        => 'user.',
-                    'prefix'    => '/users',
+                'enabled'    => true,
+                'controller' => Railken\Amethyst\Http\Controllers\Admin\UsersController::class,
+                'router'     => [
+                    'as'     => 'user.',
+                    'prefix' => '/users',
                 ],
             ],
         ],
