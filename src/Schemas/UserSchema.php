@@ -17,7 +17,8 @@ class UserSchema extends Schema
         return [
             Attributes\IdAttribute::make(),
             Attributes\TextAttribute::make('name')
-                ->setUnique(true),
+                ->setUnique(true)
+                ->setRequired(true),
             Attributes\EmailAttribute::make('email')
                 ->setRequired(true)
                 ->setUnique(true),
