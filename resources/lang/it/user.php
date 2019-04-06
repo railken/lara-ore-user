@@ -17,4 +17,4 @@ return [
             'description' => 'Una parola o frase segreta usata per il processo di autenticazione'
         ]
     ]
-]
+];

@@ -17,4 +17,4 @@ return [
             'description' => 'A secret word or phrase used for the authentication process'
         ]
     ]
-]
+];
