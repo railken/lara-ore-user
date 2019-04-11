@@ -25,7 +25,6 @@ class UserSchema extends Schema
             Attributes\PasswordAttribute::make('password')
                 ->setRequired(true),
             Attributes\BooleanAttribute::make('enabled'),
-            Attributes\LongTextAttribute::make('notes'),
             Attributes\TextAttribute::make('token')
                 ->setDefault(function ($entity, $attribute) {
                     return $attribute->getManager()->getRepository()->generateToken();
