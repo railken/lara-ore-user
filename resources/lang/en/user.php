@@ -15,6 +15,14 @@ return [
         'password' => [
             'label' => 'Password',
             'description' => 'A secret word or phrase used for the authentication process'
+        ],
+        'token' => [
+            'label' => 'Token',
+            'description' => 'A public token used in a variety of cases'
+        ],
+        'role' => [
+            'label' => 'Role',
+            'description' => 'Indentify the role of the user'
         ]
     ]
 ];
