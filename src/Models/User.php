@@ -17,7 +17,8 @@ use Railken\Lem\Contracts\EntityContract;
  */
 class User extends Model implements EntityContract
 {
-    use SoftDeletes, ConfigurableModel;
+    use SoftDeletes;
+    use ConfigurableModel;
 
     /**
      * The attributes that should be hidden for arrays.
