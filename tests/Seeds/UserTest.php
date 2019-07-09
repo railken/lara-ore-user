@@ -1,9 +1,9 @@
 <?php
 
-namespace Railken\Amethyst\Tests\Seeds;
+namespace Amethyst\Tests\Seeds;
 
-use Railken\Amethyst\Database\Seeds\UserSeeder;
-use Railken\Amethyst\Tests\BaseTest;
+use Amethyst\Database\Seeds\UserSeeder;
+use Amethyst\Tests\BaseTest;
 
 class UserTest extends BaseTest
 {

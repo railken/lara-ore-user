@@ -1,10 +1,10 @@
 {
-    "name": "railken/amethyst-user",
+    "name": "amethyst/user",
     "keywords": ["laravel", "amethyst", "amethyst-user", "user"],
     "license": "MIT",
     "require": {
         "php": ">=7.1",
-        "railken/amethyst-common": "0.1.*",
+        "amethyst/common": "0.1.*",
         "laravolt/avatar": "^2.0"
     },
     "require-dev": {
@@ -13,19 +13,19 @@
     },
     "autoload": {
         "psr-4" : {
-            "Railken\\Amethyst\\" : "src/",
-            "Railken\\Amethyst\\Database\\Seeds\\": "database/seeds/"
+            "Amethyst\\" : "src/",
+            "Amethyst\\Database\\Seeds\\": "database/seeds/"
         }
     },
     "autoload-dev": {
         "psr-4": { 
-            "Railken\\Amethyst\\Tests\\": "tests/" 
+            "Amethyst\\Tests\\": "tests/" 
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Railken\\Amethyst\\Providers\\UserServiceProvider"
+                "Amethyst\\Providers\\UserServiceProvider"
             ]
         }
     }

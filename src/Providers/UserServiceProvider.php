@@ -1,10 +1,10 @@
 <?php
 
-namespace Railken\Amethyst\Providers;
+namespace Amethyst\Providers;
 
-use Railken\Amethyst\Common\CommonServiceProvider;
-use Railken\Amethyst\Console\Commands\UserInstallCommand;
-use Railken\Amethyst\Console\Commands\UserRefreshTokenCommand;
+use Amethyst\Common\CommonServiceProvider;
+use Amethyst\Console\Commands\UserInstallCommand;
+use Amethyst\Console\Commands\UserRefreshTokenCommand;
 
 class UserServiceProvider extends CommonServiceProvider
 {

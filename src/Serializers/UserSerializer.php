@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\Amethyst\Serializers;
+namespace Amethyst\Serializers;
 
 use Illuminate\Support\Collection;
 use Laravolt\Avatar\Avatar;
@@ -12,7 +12,7 @@ class UserSerializer extends Serializer
     /**
      * Serialize entity.
      *
-     * @param \Railken\Amethyst\Models\User  $entity
+     * @param \Amethyst\Models\User  $entity
      * @param \Illuminate\Support\Collection $select
      *
      * @return \Railken\Bag

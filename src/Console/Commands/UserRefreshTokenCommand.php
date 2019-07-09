@@ -1,9 +1,9 @@
 <?php
 
-namespace Railken\Amethyst\Console\Commands;
+namespace Amethyst\Console\Commands;
 
 use Illuminate\Console\Command;
-use Railken\Amethyst\Managers\UserManager;
+use Amethyst\Managers\UserManager;
 
 class UserRefreshTokenCommand extends Command
 {

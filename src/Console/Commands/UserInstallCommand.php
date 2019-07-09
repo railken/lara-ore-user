@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\Amethyst\Console\Commands;
+namespace Amethyst\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -35,6 +35,6 @@ class UserInstallCommand extends Command
      */
     public function handle()
     {
-        $this->call('db:seed', ['--class' => 'Railken\Amethyst\Database\Seeds\UserSeeder']);
+        $this->call('db:seed', ['--class' => 'Amethyst\Database\Seeds\UserSeeder']);
     }
 }

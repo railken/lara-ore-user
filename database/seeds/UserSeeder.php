@@ -1,9 +1,9 @@
 <?php
 
-namespace Railken\Amethyst\Database\Seeds;
+namespace Amethyst\Database\Seeds;
 
 use Illuminate\Database\Seeder;
-use Railken\Amethyst\Managers\UserManager;
+use Amethyst\Managers\UserManager;
 
 class UserSeeder extends Seeder
 {
