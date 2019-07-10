@@ -2,8 +2,8 @@
 
 namespace Amethyst\Console\Commands;
 
-use Illuminate\Console\Command;
 use Amethyst\Managers\UserManager;
+use Illuminate\Console\Command;
 
 class UserRefreshTokenCommand extends Command
 {

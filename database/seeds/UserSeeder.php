@@ -2,8 +2,8 @@
 
 namespace Amethyst\Database\Seeds;
 
-use Illuminate\Database\Seeder;
 use Amethyst\Managers\UserManager;
+use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
 {
