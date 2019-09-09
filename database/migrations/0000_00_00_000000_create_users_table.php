@@ -14,9 +14,9 @@ class CreateUsersTable extends Migration
     {
         Schema::create(Config::get('amethyst.user.data.user.table'), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('token')->unique();
+            $table->string('token')->index();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->index();
             $table->string('password');
             $table->boolean('enabled')->default(0);
             $table->string('role')->default('user');
