@@ -17,7 +17,6 @@ class UserSeeder extends Seeder
                 'name'     => 'admin',
                 'email'    => 'admin@admin.com',
                 'password' => 'vercingetorige',
-                'role'     => 'admin',
                 'enabled'  => 1,
             ],
         ];

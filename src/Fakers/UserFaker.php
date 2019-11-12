@@ -19,7 +19,6 @@ class UserFaker extends Faker
         $bag->set('name', $faker->name);
         $bag->set('email', $faker->email);
         $bag->set('password', str_random(16));
-        // $bag->set('role', 'user');
 
         return $bag;
     }

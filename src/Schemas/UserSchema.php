@@ -30,7 +30,6 @@ class UserSchema extends Schema
                     return $attribute->getManager()->getRepository()->generateToken();
                 })
                 ->setFillable(false),
-            Attributes\EnumAttribute::make('role', ['user', 'admin']),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),
             Attributes\DeletedAtAttribute::make(),
