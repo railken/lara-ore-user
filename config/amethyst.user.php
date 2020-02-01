@@ -23,25 +23,4 @@ return [
             'manager'    => Amethyst\Managers\UserManager::class,
         ],
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Http configuration
-    |--------------------------------------------------------------------------
-    |
-    | Here you may configure the routes
-    |
-    */
-    'http' => [
-        'admin' => [
-            'user' => [
-                'enabled'    => true,
-                'controller' => Amethyst\Http\Controllers\Admin\UsersController::class,
-                'router'     => [
-                    'as'     => 'user.',
-                    'prefix' => '/users',
-                ],
-            ],
-        ],
-    ],
 ];
