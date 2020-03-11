@@ -2,7 +2,7 @@
 
 return [
     'name' => 'User',
-    'description' => 'Credentials and Authentications',
+    'description' => 'Credentials and Authentications. Define who can access to your system',
     'attributes' => [
         'name' => [
             'label' => 'Name',
