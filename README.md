@@ -1,6 +1,6 @@
 # amethyst-user
 
-[![Action Status](https://github.com/amethyst-php/user/workflows/test/badge.svg)](https://github.com/amethyst-php/user/actions)
+[![Action Status](https://github.com/amethyst-php/user/workflows/Test/badge.svg)](https://github.com/amethyst-php/user/actions)
 
 [Amethyst](https://github.com/amethyst-php/amethyst) package.
 
