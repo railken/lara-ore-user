@@ -6,7 +6,7 @@
 
 # Requirements
 
-PHP 7.1 and later.
+PHP 7.2 and later.
 
 ## Installation
 
@@ -18,10 +18,6 @@ composer require amethyst/user
 
 The package will automatically register itself.
 
-## Documentation
-
-[Read](docs/index.md)
-
 ## Testing
 
-Configure the .env file before launching `./vendor/bin/phpunit`
+Copy `phpunit.xml.dist` to `phpunit.xml` and change your environment before launching `./vendor/bin/phpunit`
