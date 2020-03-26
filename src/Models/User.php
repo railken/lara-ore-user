@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Railken\Lem\Contracts\EntityContract;
 
 /**
- * @property int $id
+ * @property int    $id
  * @property string $token
  * @property string $name
  * @property string $email

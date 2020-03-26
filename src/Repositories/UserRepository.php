@@ -3,7 +3,6 @@
 namespace Amethyst\Repositories;
 
 use Railken\Lem\Repository;
-use Illuminate\Database\Eloquent\Collection;
 
 class UserRepository extends Repository
 {

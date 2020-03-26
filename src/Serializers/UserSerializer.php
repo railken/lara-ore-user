@@ -11,7 +11,7 @@ class UserSerializer extends Serializer
     /**
      * Serialize entity.
      *
-     * @param \Amethyst\Models\User          $entity
+     * @param \Amethyst\Models\User                  $entity
      * @param \Illuminate\Support\Collection<string> $select
      *
      * @return \Railken\Bag<mixed>
