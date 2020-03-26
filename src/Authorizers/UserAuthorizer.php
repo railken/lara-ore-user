@@ -10,7 +10,7 @@ class UserAuthorizer extends Authorizer
     /**
      * List of all permissions.
      *
-     * @var array
+     * @var array<string>
      */
     protected $permissions = [
         Tokens::PERMISSION_CREATE => 'user.create',

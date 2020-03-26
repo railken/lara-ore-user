@@ -12,9 +12,9 @@ class UserSerializer extends Serializer
      * Serialize entity.
      *
      * @param \Amethyst\Models\User          $entity
-     * @param \Illuminate\Support\Collection $select
+     * @param \Illuminate\Support\Collection<string> $select
      *
-     * @return \Railken\Bag
+     * @return \Railken\Bag<mixed>
      */
     public function serialize(EntityContract $entity, Collection $select = null)
     {

@@ -10,12 +10,13 @@ class UserSchema extends Schema
     /**
      * Get all the attributes.
      *
-     * @var array
+     * @return array<Attributes\BaseAttribute>
      */
-    public function getAttributes()
+    public function getAttributes(): array
     {
         return [
             Attributes\IdAttribute::make(),
+            Attributes\UuidAttribute::make(),
             Attributes\TextAttribute::make('name')
                 ->setUnique(true)
                 ->setRequired(true),
@@ -25,11 +26,6 @@ class UserSchema extends Schema
             Attributes\PasswordAttribute::make('password')
                 ->setRequired(true),
             Attributes\BooleanAttribute::make('enabled'),
-            Attributes\TextAttribute::make('token')
-                ->setDefault(function ($entity, $attribute) {
-                    return $attribute->getManager()->getRepository()->generateToken();
-                })
-                ->setFillable(false),
             Attributes\CreatedAtAttribute::make(),
             Attributes\UpdatedAtAttribute::make(),
             Attributes\DeletedAtAttribute::make(),

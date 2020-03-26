@@ -9,7 +9,7 @@ use Railken\Lem\Faker;
 class UserFaker extends Faker
 {
     /**
-     * @return \Railken\Bag
+     * @return \Railken\Bag<object>
      */
     public function parameters()
     {

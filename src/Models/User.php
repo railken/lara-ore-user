@@ -8,12 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Railken\Lem\Contracts\EntityContract;
 
 /**
+ * @property int $id
+ * @property string $token
  * @property string $name
  * @property string $email
- * @property string $role
  * @property int    $enabled
- * @property string $notes
- * @property string $token
  */
 class User extends Model implements EntityContract
 {
@@ -23,7 +22,7 @@ class User extends Model implements EntityContract
     /**
      * The attributes that should be hidden for arrays.
      *
-     * @var array
+     * @var array<string>
      */
     protected $hidden = [
         'password',
@@ -32,7 +31,7 @@ class User extends Model implements EntityContract
     /**
      * Create a new Eloquent model instance.
      *
-     * @param array $attributes
+     * @param array<mixed> $attributes
      */
     public function __construct(array $attributes = [])
     {
@@ -45,7 +44,7 @@ class User extends Model implements EntityContract
      *
      * @param string $pass
      */
-    public function setPasswordAttribute($pass)
+    public function setPasswordAttribute($pass): void
     {
         $this->attributes['password'] = bcrypt($pass);
     }

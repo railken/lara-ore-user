@@ -9,11 +9,11 @@ use Amethyst\Core\Providers\CommonServiceProvider;
 class UserServiceProvider extends CommonServiceProvider
 {
     /**
-     * Bootstrap any application services.
+     * @inherit
      */
-    public function boot()
+    public function boot(): void
     {
-        $this->commands([UserInstallCommand::class, UserRefreshTokenCommand::class]);
+        $this->commands([UserInstallCommand::class]);
 
         parent::boot();
     }
